@@ -5,26 +5,25 @@ import flask
 
 app = flask.Flask(__name__)
 
-
 @app.route("/")
 def index():
     version = flask.request.args.get("urllib_version")
     url = flask.request.args.get("url")
     return fetch_website(version, url)
-
-        
+    
 CONFIG = {"API_KEY": "771df488714111d39138eb60df756e6b"}
 class Person(object):
+    """
+    Person class for name
+    """
     def __init__(self, name):
         self.name = name
-
 
 def print_nametag(format_string, person):
     """
     Formatting function for nametags
     """
     print(format_string.format(person=person))
-
 
 def fetch_website(urllib_version, url):
     """
@@ -40,8 +39,10 @@ def fetch_website(urllib_version, url):
     except:
         print('Exception')
 
-
 def load_yaml(filename):
+    """
+    Loading yaml file
+    """
     stream = open(filename)
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
@@ -73,4 +74,3 @@ if __name__ == '__main__':
     elif choice == "4":
         password = input("Enter master password: ")
         authenticate(password)
-
