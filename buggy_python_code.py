@@ -20,10 +20,16 @@ class Person(object):
 
 
 def print_nametag(format_string, person):
+    """
+    Formatting function for nametags
+    """
     print(format_string.format(person=person))
 
 
 def fetch_website(urllib_version, url):
+    """
+    Fetching website using urllib
+    """
     # Import the requested version (2 or 3) of urllib
     exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
@@ -41,6 +47,9 @@ def load_yaml(filename):
     return deserialized_data
     
 def authenticate(password):
+    """
+    Authentication method to verivy if passwords are correct
+    """
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
